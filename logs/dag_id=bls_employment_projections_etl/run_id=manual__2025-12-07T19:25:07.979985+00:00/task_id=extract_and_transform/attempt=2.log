@@ -1,0 +1,24 @@
+[2025-12-07T19:30:36.917+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-07T19:30:37.008+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bls_employment_projections_etl.extract_and_transform manual__2025-12-07T19:25:07.979985+00:00 [queued]>
+[2025-12-07T19:30:37.064+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bls_employment_projections_etl.extract_and_transform manual__2025-12-07T19:25:07.979985+00:00 [queued]>
+[2025-12-07T19:30:37.065+0000] {taskinstance.py:2865} INFO - Starting attempt 2 of 2
+[2025-12-07T19:30:37.428+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): extract_and_transform> on 2025-12-07 19:25:07.979985+00:00
+[2025-12-07T19:30:37.505+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=296) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-07T19:30:37.510+0000] {standard_task_runner.py:72} INFO - Started process 302 to run task
+[2025-12-07T19:30:37.503+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'bls_employment_projections_etl', 'extract_and_transform', 'manual__2025-12-07T19:25:07.979985+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/dags/bls_etl_dag.py', '--cfg-path', '/tmp/tmpqti9sveb']
+[2025-12-07T19:30:37.515+0000] {standard_task_runner.py:105} INFO - Job 84: Subtask extract_and_transform
+[2025-12-07T19:30:37.706+0000] {task_command.py:467} INFO - Running <TaskInstance: bls_employment_projections_etl.extract_and_transform manual__2025-12-07T19:25:07.979985+00:00 [running]> on host 8f0f084825b6
+[2025-12-07T19:30:37.866+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_team' AIRFLOW_CTX_DAG_ID='bls_employment_projections_etl' AIRFLOW_CTX_TASK_ID='extract_and_transform' AIRFLOW_CTX_EXECUTION_DATE='2025-12-07T19:25:07.979985+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-07T19:25:07.979985+00:00'
+[2025-12-07T19:30:37.870+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-07T19:30:37.921+0000] {bls_etl_dag.py:62} INFO - Starting BLS data extraction and transformation
+[2025-12-07T19:30:37.922+0000] {bls_transformer.py:12} INFO - Reading BLS data from /opt/***/dags/data/Employment Projections.csv
+[2025-12-07T19:30:38.007+0000] {bls_transformer.py:15} INFO - Original data shape: (832, 14)
+[2025-12-07T19:30:49.282+0000] {bls_transformer.py:50} INFO - Transformed data shape: (5835, 15)
+[2025-12-07T19:30:49.484+0000] {bls_transformer.py:54} INFO - Transformed data saved to /opt/***/dags/data/transformed/bls_employment_projections_transformed.csv
+[2025-12-07T19:30:49.658+0000] {bls_etl_dag.py:71} INFO - Transformation complete. 5835 rows created.
+[2025-12-07T19:30:49.664+0000] {python.py:240} INFO - Done. Returned value was: /opt/***/dags/data/transformed/bls_employment_projections_transformed.csv
+[2025-12-07T19:30:49.805+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-07T19:30:49.811+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=bls_employment_projections_etl, task_id=extract_and_transform, run_id=manual__2025-12-07T19:25:07.979985+00:00, execution_date=20251207T192507, start_date=20251207T193037, end_date=20251207T193049
+[2025-12-07T19:30:50.435+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-12-07T19:30:50.588+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-07T19:30:50.602+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

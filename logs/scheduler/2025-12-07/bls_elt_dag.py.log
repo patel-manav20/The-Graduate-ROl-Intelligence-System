@@ -1,0 +1,148 @@
+[2025-12-07T11:25:21.150+0000] {processor.py:186} INFO - Started process (PID=1497) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:25:21.156+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:25:21.163+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.162+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:25:21.264+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:25:21.587+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.585+0000] {override.py:1900} INFO - Created Permission View: can delete on DAG:bls_employment_projections_elt
+[2025-12-07T11:25:21.602+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.602+0000] {override.py:1900} INFO - Created Permission View: can edit on DAG:bls_employment_projections_elt
+[2025-12-07T11:25:21.615+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.615+0000] {override.py:1900} INFO - Created Permission View: can read on DAG:bls_employment_projections_elt
+[2025-12-07T11:25:21.630+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.629+0000] {override.py:1900} INFO - Created Permission View: can delete on DAG Run:bls_employment_projections_elt
+[2025-12-07T11:25:21.640+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.639+0000] {override.py:1900} INFO - Created Permission View: can create on DAG Run:bls_employment_projections_elt
+[2025-12-07T11:25:21.651+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.650+0000] {override.py:1900} INFO - Created Permission View: menu access on DAG Run:bls_employment_projections_elt
+[2025-12-07T11:25:21.663+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.663+0000] {override.py:1900} INFO - Created Permission View: can read on DAG Run:bls_employment_projections_elt
+[2025-12-07T11:25:21.664+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.664+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:25:21.692+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.692+0000] {dag.py:3252} INFO - Creating ORM DAG for bls_employment_projections_elt
+[2025-12-07T11:25:21.693+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:21.693+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:25:21.731+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.606 seconds
+[2025-12-07T11:25:52.710+0000] {processor.py:186} INFO - Started process (PID=1523) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:25:52.712+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:25:52.721+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:52.719+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:25:52.786+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:25:52.815+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:52.815+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:25:52.841+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:25:52.840+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:25:52.860+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.171 seconds
+[2025-12-07T11:26:23.868+0000] {processor.py:186} INFO - Started process (PID=1549) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:26:23.875+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:26:23.882+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:26:23.881+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:26:23.956+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:26:23.987+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:26:23.987+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:26:24.016+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:26:24.015+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:26:24.034+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.182 seconds
+[2025-12-07T11:26:55.026+0000] {processor.py:186} INFO - Started process (PID=1575) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:26:55.029+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:26:55.038+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:26:55.037+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:26:55.098+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:26:55.127+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:26:55.127+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:26:55.152+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:26:55.152+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:26:55.180+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.174 seconds
+[2025-12-07T11:27:26.084+0000] {processor.py:186} INFO - Started process (PID=1601) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:27:26.086+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:27:26.104+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:27:26.103+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:27:26.179+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:27:26.208+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:27:26.208+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:27:26.235+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:27:26.234+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:27:26.255+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.188 seconds
+[2025-12-07T11:27:56.743+0000] {processor.py:186} INFO - Started process (PID=1627) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:27:56.750+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:27:56.763+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:27:56.757+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:27:56.867+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:27:56.902+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:27:56.902+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:27:56.931+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:27:56.930+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:27:56.951+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.232 seconds
+[2025-12-07T11:28:27.464+0000] {processor.py:186} INFO - Started process (PID=1653) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:28:27.467+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:28:27.473+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:28:27.472+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:28:27.539+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:28:27.564+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:28:27.563+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:28:27.586+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:28:27.586+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:28:27.607+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.157 seconds
+[2025-12-07T11:28:58.422+0000] {processor.py:186} INFO - Started process (PID=1679) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:28:58.427+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:28:58.439+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:28:58.438+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:28:58.504+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:28:58.535+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:28:58.534+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:28:58.557+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:28:58.557+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:28:58.581+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.193 seconds
+[2025-12-07T11:29:29.288+0000] {processor.py:186} INFO - Started process (PID=1705) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:29:29.295+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:29:29.300+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:29:29.300+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:29:29.389+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:29:29.430+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:29:29.429+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:29:29.451+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:29:29.451+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:29:29.469+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.205 seconds
+[2025-12-07T11:30:00.265+0000] {processor.py:186} INFO - Started process (PID=1730) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:30:00.268+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:30:00.273+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:30:00.272+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:30:00.337+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:30:00.367+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:30:00.367+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:30:00.390+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:30:00.390+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:30:00.407+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.165 seconds
+[2025-12-07T11:30:30.998+0000] {processor.py:186} INFO - Started process (PID=1756) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:30:31.001+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:30:31.008+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:30:31.006+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:30:31.098+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:30:31.129+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:30:31.129+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:30:31.149+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:30:31.149+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:30:31.168+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.193 seconds
+[2025-12-07T11:31:01.937+0000] {processor.py:186} INFO - Started process (PID=1782) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:31:01.940+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:31:01.946+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:31:01.945+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:31:02.005+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:31:02.040+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:31:02.040+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:31:02.061+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:31:02.061+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:31:02.081+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.165 seconds
+[2025-12-07T11:31:32.185+0000] {processor.py:186} INFO - Started process (PID=1808) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:31:32.187+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:31:32.195+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:31:32.194+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:31:32.273+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:31:33.493+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:31:33.484+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:31:33.695+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:31:33.694+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:31:33.827+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 1.655 seconds
+[2025-12-07T11:32:06.043+0000] {processor.py:186} INFO - Started process (PID=1831) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:32:06.064+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:32:06.116+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:32:06.113+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:32:06.622+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:32:06.728+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:32:06.727+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:32:06.812+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:32:06.811+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:32:06.902+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 1.028 seconds
+[2025-12-07T11:32:37.578+0000] {processor.py:186} INFO - Started process (PID=1859) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:32:37.581+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:32:37.585+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:32:37.585+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:32:37.616+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:32:37.642+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:32:37.642+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:32:37.665+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:32:37.664+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:32:37.684+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.122 seconds
+[2025-12-07T11:33:08.282+0000] {processor.py:186} INFO - Started process (PID=1880) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:33:08.285+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:33:08.291+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:33:08.291+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:33:08.393+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:33:08.437+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:33:08.436+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:33:08.476+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:33:08.476+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:33:08.501+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.244 seconds
+[2025-12-07T11:33:39.047+0000] {processor.py:186} INFO - Started process (PID=1906) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:33:39.050+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:33:39.070+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:33:39.068+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:33:39.285+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:33:39.354+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:33:39.354+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:33:39.394+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:33:39.393+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:33:39.451+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.428 seconds
+[2025-12-07T11:34:10.598+0000] {processor.py:186} INFO - Started process (PID=1932) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:34:10.622+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:34:10.660+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:34:10.658+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:34:15.160+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:34:18.352+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:34:18.345+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:34:18.984+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:34:18.982+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:34:19.139+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 8.619 seconds
+[2025-12-07T11:34:49.493+0000] {processor.py:186} INFO - Started process (PID=1958) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:34:49.495+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:34:49.506+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:34:49.505+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:34:49.601+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:34:49.646+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:34:49.645+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:34:49.681+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:34:49.681+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:34:49.712+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.238 seconds
+[2025-12-07T11:35:20.189+0000] {processor.py:186} INFO - Started process (PID=1984) to work on /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:35:20.199+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/bls_elt_dag.py for tasks to queue
+[2025-12-07T11:35:20.211+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:35:20.210+0000] {dagbag.py:587} INFO - Filling up the DagBag from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:35:20.330+0000] {processor.py:925} INFO - DAG(s) 'bls_employment_projections_elt' retrieved from /opt/airflow/dags/bls_elt_dag.py
+[2025-12-07T11:35:20.381+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:35:20.381+0000] {dag.py:3229} INFO - Sync 1 DAGs
+[2025-12-07T11:35:20.405+0000] {logging_mixin.py:190} INFO - [2025-12-07T11:35:20.405+0000] {dag.py:4156} INFO - Setting next_dagrun for bls_employment_projections_elt to None, run_after=None
+[2025-12-07T11:35:20.428+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/bls_elt_dag.py took 0.297 seconds
