@@ -75,9 +75,9 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
    
    - **Connection ID**: `snowflake_conn`
    - **Connection Type**: Snowflake
-   - **Account**: SFEDU02-LVB17920
+   - **Account**: ****
    - **User**: HYENA
-   - **Password**: Your Snowflake password
+   - **Password**: ****
    - **Warehouse**: HYENA_QUERRY_WH
    - **Database**: USER_DB_HYENA
    - **Schema**: RAW
