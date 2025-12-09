@@ -194,7 +194,6 @@ dags/
 ├── adzuna_etl_dag.py                 # Adzuna ETL pipeline
 ├── college_scorecard_etl.py          # College Scorecard ETL pipeline
 ├── warn_etl.py                       # WARN ETL pipeline
-├── dbt_elt_dag.py                    # DBT pipeline (disabled)
 ├── config/
 │   └── snowflake_config.py           # Snowflake configuration
 ├── utils/
