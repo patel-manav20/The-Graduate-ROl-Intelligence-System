@@ -13,7 +13,7 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
 | **College Scorecard ETL** | Dept. of Education API | Daily | RAW | COLLEGE_SCORECARD_DATA |
 | **WARN ETL** | WARN Events CSV | Monthly | RAW | WARN_EVENTS |
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
@@ -39,7 +39,7 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
               └────────────────────────┘
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -111,7 +111,7 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
      - `college_scorecard_etl`
      - `warn_etl`
 
-## 📊 Pipeline Details
+## Pipeline Details
 
 ### 1. BLS Employment Projections ETL
 
@@ -186,7 +186,7 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
 
 **Output Table**: `USER_DB_HYENA.RAW.WARN_EVENTS`
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 dags/
@@ -207,7 +207,7 @@ dags/
 docker-compose.yaml                   # Docker Airflow setup
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Snowflake Settings
 
@@ -225,7 +225,7 @@ All pipelines use:
 - **Transaction control**: BEGIN/COMMIT/ROLLBACK
 - **Error handling**: Automatic rollback on failure
 
-## 📈 Data Flow
+## Data Flow
 
 ```
 Raw Data Sources
@@ -243,7 +243,7 @@ Snowflake RAW Schema
 [Analytics & Reporting]
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -281,7 +281,7 @@ docker-compose logs airflow
 # Navigate to Airflow UI → DAGs → Select DAG → Click on task → View logs
 ```
 
-## 📊 Monitoring
+## Monitoring
 
 ### Airflow UI Metrics
 - DAG run success rate
@@ -305,7 +305,7 @@ SELECT COUNT(*) FROM USER_DB_HYENA.RAW.COLLEGE_SCORECARD_DATA;
 SELECT COUNT(*) FROM USER_DB_HYENA.RAW.WARN_EVENTS;
 ```
 
-## 🔄 Maintenance
+## Maintenance
 
 ### Daily
 - Monitor DAG executions in Airflow UI
@@ -322,7 +322,7 @@ SELECT COUNT(*) FROM USER_DB_HYENA.RAW.WARN_EVENTS;
 - Performance optimization
 - Schema evolution planning
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [BLS Employment Projections](https://www.bls.gov/emp/)
 - [Adzuna API Documentation](https://developer.adzuna.com/)
@@ -330,7 +330,7 @@ SELECT COUNT(*) FROM USER_DB_HYENA.RAW.WARN_EVENTS;
 - [Apache Airflow Docs](https://airflow.apache.org/docs/)
 - [Snowflake Docs](https://docs.snowflake.com/)
 
-## 🎯 Project Goals
+## Project Goals
 
 - Provide employment projection data for ROI analysis
 - Enable degree-to-job mapping for relevance scoring
