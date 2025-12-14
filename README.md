@@ -89,19 +89,12 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
    
    | Key | Value |
    |-----|-------|
-   | `adzuna_app_id` | Your Adzuna App ID |
-   | `adzuna_app_key` | Your Adzuna App Key |
-   | `adzuna_pages_per_category` | 15 |
+   | `Adzuna_App_Id` | Your Adzuna App ID |
+   | `Adzuna_App_Key` | Your Adzuna App Key |
+   | `Adzuna_Pages_Per_Category` | 15 |
    | `COLLEGE_SCORECARD_API_KEY` | (Optional) Your API key |
-
-7. **Place data files**
-   ```bash
-   # BLS data
-   cp "Employment Projections.csv" dags/data/Employment\ Projections.csv
-   
-   # WARN data
-   cp warn_events.csv dags/data/warn_events.csv
-   ```
+   | `Employment_Projections_API_Key` | (Optional) Your API key |
+   | `Warn_Events_API_Key` | (Optional) Your API key |
 
 8. **Enable DAGs**
    - Open Airflow UI
