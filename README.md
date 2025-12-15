@@ -435,8 +435,6 @@ Group Project/
 
 ### Link : https://thelastdegree.dev/
 
-                         <img width="367" height="399" alt="image" src="https://github.com/user-attachments/assets/9b5a16f0-3266-41d4-ab6b-b886a2174440" />
-
 ## Configuration
 
 ### Snowflake Settings
