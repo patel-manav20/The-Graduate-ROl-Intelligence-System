@@ -3,8 +3,6 @@
 -- =============================================================================
 
 -- Ensure database and schema exist
- 
--- Create database and schema if they don't exist to avoid 'not accessible' errors
 CREATE DATABASE IF NOT EXISTS USER_DB_HYENA;
 CREATE SCHEMA IF NOT EXISTS USER_DB_HYENA.RAW;
 USE DATABASE USER_DB_HYENA;
