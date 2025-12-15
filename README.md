@@ -1,6 +1,6 @@
 # Graduate ROI Intelligence System - ETL Pipelines
 
-A comprehensive Apache Airflow-based ETL system that extracts, transforms, and loads data from multiple sources into Snowflake for ROI analysis and career intelligence.
+A comprehensive data warehouse system that extracts, transforms, and loads data from multiple sources into Snowflake, then transforms it into analytical marts for ROI analysis and career intelligence.
 
 ## 📋 Overview
 
@@ -12,6 +12,7 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
 | **Adzuna ETL** | Adzuna Job API | Daily (2 AM UTC) | RAW | JOB_LISTINGS |
 | **College Scorecard ETL** | Dept. of Education API | Daily | RAW | COLLEGE_SCORECARD_DATA |
 | **WARN ETL** | WARN Events CSV | Monthly | RAW | WARN_EVENTS |
+| **dbt Transformations** | RAW Schema Tables | Daily | ANALYTICS | mart_degree_roi_and_industry_outlook |
 
 ## Architecture
 
@@ -37,6 +38,26 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
               │   Snowflake Warehouse  │
               │  USER_DB_HYENA.RAW     │
               └────────────────────────┘
+                           │
+                           ▼
+              ┌────────────────────────┐
+              │      dbt Project       │
+              │  ┌──────────────────┐  │
+              │  │ Staging Models   │  │
+              │  │ (Views in RAW)   │  │
+              │  └────────┬─────────┘  │
+              │           │            │
+              │  ┌────────▼─────────┐  │
+              │  │  Mart Models     │  │
+              │  │ (Tables in       │  │
+              │  │  ANALYTICS)      │  │
+              │  └──────────────────┘  │
+              └────────────────────────┘
+                           │
+                           ▼
+              ┌────────────────────────┐
+              │   Analytics & Reports  │        │
+              └────────────────────────┘
 ```
 
 ## Quick Start
@@ -46,6 +67,7 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
 - Docker and Docker Compose
 - Snowflake account
 - API keys (for Adzuna and College Scorecard)
+- dbt Core
 
 ### Installation
 
@@ -103,6 +125,39 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
      - `adzuna_job_listings_etl`
      - `college_scorecard_etl`
      - `warn_etl`
+    
+### dbt Setup
+
+1. **Navigate to dbt directory**
+   ```bash
+   cd dbt
+   ```
+
+2. **Set up environment variables**
+   ```bash
+   export DBT_ACCOUNT="your_snowflake_account"
+   export DBT_USER="your_username"
+   export DBT_PASSWORD="your_password"
+   export DBT_DATABASE="USER_DB_HYENA"
+   export DBT_SCHEMA="RAW"
+   export DBT_WAREHOUSE="HYENA_QUERRY_WH"
+   export DBT_ROLE="TRAINING_ROLE"
+   ```
+
+3. **Install dbt dependencies**
+   ```bash
+   dbt deps
+   ```
+
+4. **Test connection**
+   ```bash
+   dbt debug
+   ```
+
+5. **Run transformations**
+   ```bash
+   dbt run
+   ```
 
 ## Pipeline Details
 
@@ -179,25 +234,201 @@ This project contains 4 ETL pipelines that process data for graduate ROI forecas
 
 **Output Table**: `USER_DB_HYENA.RAW.WARN_EVENTS`
 
+## dbt Transformations
+
+### Overview
+The dbt project transforms raw data from multiple sources into a unified analytical mart that combines college ROI metrics with labor market intelligence. The project standardizes data across different sources using a 25-occupation-group taxonomy to enable cross-source analysis.
+
+### Data Sources
+
+The dbt project integrates data from five source systems (all in `USER_DB_HYENA.RAW`):
+
+1. **Institution Source** (`institution_src`)
+   - **Table**: `COLLEGE_SCORECARD_DATA`
+   - **Description**: College Scorecard data containing institution information, tuition, earnings, debt, and completion rates
+
+2. **Jobs Source** (`jobs_src`)
+   - **Table**: `JOB_LISTINGS`
+   - **Description**: Job postings from Adzuna with salary, location, and category information
+
+3. **WARN Source** (`warn_src`)
+   - **Table**: `WARN_EVENTS`
+   - **Description**: Worker Adjustment and Retraining Notification (WARN) layoff events
+
+4. **BLS Source** (`bls_src`)
+   - **Table**: `BLS_EMPLOYMENT_PROJECTIONS`
+   - **Description**: Bureau of Labor Statistics employment projections and wage data
+
+5. **Lookups Source** (`lookups_src`)
+   - **Tables**: 
+     - `LOOKUP_JOB_CATEGORIES` - Maps job categories to occupation groups
+     - `LOOKUP_WARN_INDUSTRIES` - Maps WARN industries to occupation groups
+     - `LOOKUP_BLS_OCCUPATIONS` - Maps BLS occupations to occupation groups
+
+### Staging Layer (`RAW` Schema)
+
+All staging models are materialized as views and perform:
+- Data type conversion and cleaning
+- Standardization of values
+- Enrichment with occupation group mappings
+- Calculation of derived metrics
+
+#### `stg_institution`
+- Cleans institution data from College Scorecard
+- Converts state abbreviations to full names using `state_full_name` macro
+- Calculates ROI metrics:
+  - `ROI_IN_STATE`: Earnings (10 years) - In-state tuition
+  - `ROI_OUT_OF_STATE`: Earnings (10 years) - Out-of-state tuition
+  - `DEBT_TO_EARNINGS_RATIO`: Median debt / Earnings (10 years)
+  - `VALUE_INDEX`: Earnings (10 years) - Average net price
+
+#### `stg_jobs`
+- Cleans job listing data from Adzuna
+- Converts salary strings to numeric values
+- Maps job categories to occupation groups via lookup table
+
+#### `stg_warn`
+- Cleans WARN layoff event data
+- Converts worker count strings to numeric values
+- Maps industries to occupation groups via lookup table
+
+#### `stg_bls`
+- Cleans BLS employment projection data
+- Converts employment numbers and percentages to numeric values
+- Maps occupation titles to occupation groups via lookup table
+
+#### `stg_lookups`
+- Unified view combining all lookup tables
+- Provides a single source for category/industry/occupation to occupation group mappings
+
+### Mart Layer (`ANALYTICS` Schema)
+
+#### `mart_degree_roi_and_industry_outlook`
+- **Materialization**: Table
+- **Purpose**: Final analytical mart combining all data sources
+- **Key Features**:
+  - Creates a cross-join of all institutions × all occupation groups
+  - Aggregates job market metrics by occupation group (national level)
+  - Aggregates layoff metrics by occupation group
+  - Aggregates BLS projections by occupation group
+  - Calculates risk ratios (layoff-to-posting ratio)
+
+**Key Metrics**:
+- Institution ROI metrics (in-state and out-of-state)
+- Job posting counts and average salaries by occupation group
+- Layoff counts and risk ratios by occupation group
+- BLS employment projections (2024-2034) and median wages
+- Debt-to-earnings ratios and value indices
+
+### Macros
+
+#### `state_full_name`
+Converts US state abbreviations (e.g., 'CA') to full state names (e.g., 'California'). Used in `stg_institution` to standardize state names.
+
+### Snapshots
+
+#### `institution_outcomes_snapshot`
+- **Schema**: `SNAPSHOTS`
+- **Strategy**: Timestamp-based
+- **Unique Key**: `INSTITUTION_ID`
+- **Updated At**: `LOAD_TIMESTAMP`
+- **Purpose**: Tracks historical changes to institution data over time
+
+### dbt Usage
+
+#### Install Dependencies
+```bash
+cd dbt
+dbt deps
+```
+
+#### Run All Models
+```bash
+dbt run
+```
+
+#### Run Specific Models
+```bash
+# Run only staging models
+dbt run --select staging
+
+# Run only the mart
+dbt run --select marts
+
+# Run a specific model
+dbt run --select stg_institution
+```
+
+#### Run Tests
+```bash
+# Run all tests
+dbt test
+
+# Run tests for specific models
+dbt test --select stg_institution
+```
+
+#### Generate Documentation
+```bash
+dbt docs generate
+dbt docs serve
+```
+
+#### Run Snapshots
+```bash
+dbt snapshot
+```
+
+#### Full Refresh
+```bash
+# Rebuild all models from scratch
+dbt run --full-refresh
+```
+
 ## Project Structure
 
 ```
-dags/
-├── bls_etl_dag.py                    # BLS ETL pipeline
-├── adzuna_etl_dag.py                 # Adzuna ETL pipeline
-├── college_scorecard_etl.py          # College Scorecard ETL pipeline
-├── warn_etl.py                       # WARN ETL pipeline
-├── config/
-│   └── snowflake_config.py           # Snowflake configuration
-├── utils/
-│   └── bls_transformer.py            # BLS transformation logic
-├── data/
-│   ├── Employment Projections.csv
-│   ├── warn_events.csv
-│   └── transformed/
-└── README.md                          # This file
-
-docker-compose.yaml                   # Docker Airflow setup
+Group Project/
+├── dags/                                    # ETL Pipelines
+│   ├── bls_etl_dag.py                       # BLS ETL pipeline
+│   ├── adzuna_etl_dag.py                    # Adzuna ETL pipeline
+│   ├── college_scorecard_etl.py             # College Scorecard ETL pipeline
+│   ├── warn_etl.py                          # WARN ETL pipeline
+│   ├── dbt_elt_dag.py                       # DBT pipeline orchestrator
+│   ├── config/
+│   │   └── snowflake_config.py              # Snowflake configuration
+│   ├── utils/
+│   │   └── bls_transformer.py               # BLS transformation logic
+│   ├── data/
+│   │   ├── Employment Projections.csv
+│   │   ├── warn_events.csv
+│   │   └── transformed/
+│   └── README.md
+├── dbt/                                     # dbt Transformations
+│   ├── models/
+│   │   ├── marts/
+│   │   │   ├── mart_degree_roi_and_industry_outlook.sql
+│   │   │   ├── schema.yml
+│   │   │   └── staging/
+│   │   │       ├── stg_institution.sql
+│   │   │       ├── stg_jobs.sql
+│   │   │       ├── stg_warn.sql
+│   │   │       ├── stg_bls.sql
+│   │   │       ├── stg_lookups.sql
+│   │   │       └── schema.yml
+│   │   └── sources.yml
+│   ├── macros/
+│   │   └── state_full_name.sql
+│   ├── snapshots/
+│   │   └── institution_outcomes.sql
+│   ├── dbt_project.yml
+│   ├── profiles.yml
+│   └── README.md
+├── sql/
+│   └── create_job_listings_table.sql        # Table creation scripts
+├── docker-compose.yaml                      # Docker Airflow setup
+├── Dockerfile                               # Custom Airflow image
+└── The Last Degree/                         # Frontend application
 ```
 
 ## Configuration
@@ -206,17 +437,26 @@ docker-compose.yaml                   # Docker Airflow setup
 
 All pipelines use:
 - **Database**: `USER_DB_HYENA`
-- **Schema**: `RAW` (for raw data)
-- **Connection ID**: `snowflake_conn`
+- **RAW Schema**: For raw data from ETL pipelines
+- **ANALYTICS Schema**: For dbt mart models
+- **SNAPSHOTS Schema**: For dbt snapshots
+- **Connection ID**: `snowflake_conn` (for Airflow)
 
-### Common Patterns
+### Common ETL Patterns
 
-All pipelines use:
+All ETL pipelines use:
 - **Staging tables**: Temporary tables for batch loading
 - **MERGE operations**: Upsert pattern (update if exists, insert if new)
 - **Batch processing**: 1000 rows per batch
 - **Transaction control**: BEGIN/COMMIT/ROLLBACK
 - **Error handling**: Automatic rollback on failure
+
+### Schema Configuration
+
+- **Staging Models**: `RAW` schema (views)
+- **Mart Models**: `ANALYTICS` schema (tables)
+- **Snapshots**: `SNAPSHOTS` schema (tables)
+
 
 ## Data Flow
 
@@ -264,6 +504,23 @@ docker-compose restart airflow
 - Ensure CSV files are in `dags/data/` directory
 - Check Docker volume mounts in `docker-compose.yaml`
 
+### dbt Issues
+
+**Connection errors**
+- Verify environment variables are set correctly
+- Run `dbt debug` to test connection
+- Check `profiles.yml` configuration
+
+**Model build failures**
+- Check source table existence: `SELECT * FROM USER_DB_HYENA.RAW.<table_name> LIMIT 1`
+- Verify lookup tables are populated
+- Review dbt logs for specific error messages
+
+**Test failures**
+- Review test output for specific column/model issues
+- Check for NULL values in required fields
+- Verify data quality in source tables
+
 ### Viewing Logs
 
 ```bash
@@ -285,17 +542,20 @@ docker-compose logs airflow
 ### Snowflake Queries
 
 ```sql
--- Check BLS data
+-- Check ETL data
 SELECT COUNT(*) FROM USER_DB_HYENA.RAW.BLS_EMPLOYMENT_PROJECTIONS;
-
--- Check Adzuna data
 SELECT COUNT(*) FROM USER_DB_HYENA.RAW.JOB_LISTINGS;
-
--- Check College Scorecard data
 SELECT COUNT(*) FROM USER_DB_HYENA.RAW.COLLEGE_SCORECARD_DATA;
-
--- Check WARN data
 SELECT COUNT(*) FROM USER_DB_HYENA.RAW.WARN_EVENTS;
+
+-- Check dbt staging models
+SELECT COUNT(*) FROM USER_DB_HYENA.RAW.stg_institution;
+SELECT COUNT(*) FROM USER_DB_HYENA.RAW.stg_jobs;
+SELECT COUNT(*) FROM USER_DB_HYENA.RAW.stg_warn;
+SELECT COUNT(*) FROM USER_DB_HYENA.RAW.stg_bls;
+
+-- Check dbt mart
+SELECT COUNT(*) FROM USER_DB_HYENA.ANALYTICS.mart_degree_roi_and_industry_outlook;
 ```
 
 ## Maintenance
@@ -329,7 +589,8 @@ SELECT COUNT(*) FROM USER_DB_HYENA.RAW.WARN_EVENTS;
 - Enable degree-to-job mapping for relevance scoring
 - Support 10-year employment forecasting
 - Integrate with Graduate ROI Intelligence System
-
+- Create unified analytical marts for reporting and visualization
+  
 ---
 
 **Version**: 2.0.0  
