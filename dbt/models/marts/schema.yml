@@ -1,0 +1,140 @@
+version: 2
+
+models:
+
+  - name: mart_degree_roi_and_industry_outlook
+    description: >
+      Final analytical mart combining:
+      - Institution ROI metrics
+      - Job market demand & salary (Adzuna)
+      - Layoffs & risk ratios (WARN)
+      - Future projections, wage, and openings (BLS)
+      All standardized using the 25 occupation group taxonomy.
+
+    columns:
+
+      # ---------------------------
+      # Institution Information
+      # ---------------------------
+      - name: INSTITUTION_ID
+        description: "Unique identifier for each institution."
+        tests:
+          - not_null
+
+      - name: INSTITUTION_NAME
+        description: "Full name of the college or university."
+
+      - name: INSTITUTION_STATE
+        description: "State where the institution is located."
+        tests:
+          - not_null
+
+      - name: CITY
+        description: "City where the institution is located."
+
+      - name: ZIP_CODE
+        description: "ZIP code for the institution."
+
+      - name: REGION_ID
+        description: "Region classification."
+
+      - name: WEBSITE
+        description: "Institution website."
+
+      - name: SCHOOL_TYPE
+        description: "Public, private nonprofit, private for-profit."
+
+      - name: OWNERSHIP
+        description: "Institution ownership classification."
+
+      - name: STUDENT_SIZE
+        description: "Total number of enrolled students."
+
+      - name: ADMISSION_RATE
+        description: "Admission rate (0–1)."
+
+      # ---------------------------
+      # Cost & Financial Outcomes
+      # ---------------------------
+      - name: TUITION_IN_STATE
+        description: "Annual in-state tuition."
+
+      - name: TUITION_OUT_OF_STATE
+        description: "Annual out-of-state tuition."
+
+      - name: AVG_NET_PRICE
+        description: "Average net cost after grants."
+
+      - name: FEDERAL_GRANTS
+        description: "Average federal grant aid awarded."
+
+      - name: LOANS_AMOUNT
+        description: "Average federal loans taken."
+
+      # ---------------------------
+      # Earnings, Debt & ROI
+      # ---------------------------
+      - name: EARNINGS_6YRS
+        description: "Median earnings 6 years after enrollment."
+
+      - name: EARNINGS_10YRS
+        description: "Median earnings 10 years after enrollment."
+
+      - name: MEDIAN_DEBT
+        description: "Median federal loan debt after graduation."
+
+      - name: COMPLETION_RATE
+        description: "Completion rate (0–1)."
+
+      - name: ROI_IN_STATE
+        description: "ROI computed using in-state tuition."
+
+      - name: ROI_OUT_OF_STATE
+        description: "ROI computed using out-of-state tuition."
+
+      - name: DEBT_TO_EARNINGS_RATIO
+        description: "Debt / Earnings_10yrs (lower = better)."
+
+      - name: VALUE_INDEX
+        description: "Earnings_10Y - Avg Net Price (higher = better value)."
+
+      # ---------------------------
+      # Occupation Group Dimension
+      # ---------------------------
+      - name: OCCUPATION_GROUP
+        description: "One of the 25 standardized occupation groups."
+        tests:
+          - not_null
+
+      # ---------------------------
+      # Job Market Metrics (Adzuna)
+      # ---------------------------
+      - name: JOB_POSTINGS
+        description: "Number of job listings for this state × occupation group."
+
+      - name: AVG_LISTING_SALARY
+        description: "Average salary from job listings for this occupation group and state."
+
+      # ---------------------------
+      # Layoff Metrics (WARN)
+      # ---------------------------
+      - name: EMPLOYEES_LAID_OFF
+        description: "Total laid-off workers for this state × occupation group."
+
+      - name: LAYOFF_TO_POSTING_RATIO
+        description: "Layoffs ÷ Job postings. Proxy for job risk."
+
+      # ---------------------------
+      # BLS Projections
+      # ---------------------------
+      - name: AVG_EMPLOYMENT_GROWTH_PCT
+        description: "Projected employment growth % for this occupation group."
+
+      - name: AVG_ANNUAL_OPENINGS
+        description: "Projected annual job openings."
+
+      - name: AVG_BLS_MEDIAN_WAGE
+        description: "National median annual wage for this occupation group."
+
+      - name: TYPICAL_ENTRY_EDUCATION
+        description: "Required education level for typical entry into this occupation group."

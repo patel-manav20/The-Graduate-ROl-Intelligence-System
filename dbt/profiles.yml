@@ -1,0 +1,13 @@
+warehouse_project:
+  target: prod
+  outputs:
+    prod:
+      type: snowflake
+      account: "{{ env_var('DBT_ACCOUNT') }}"
+      user: "{{ env_var('DBT_USER') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      database: "{{ env_var('DBT_DATABASE') }}"
+      schema: "{{ env_var('DBT_SCHEMA') }}"
+      warehouse: "{{ env_var('DBT_WAREHOUSE') }}"
+      role: "{{ env_var('DBT_ROLE') }}"
+      threads: 4
